@@ -48,6 +48,10 @@ export default function Index() {
             <div className="px-3 py-1 bg-secondary rounded text-xs font-mono text-foreground">
               {trafficData.length} packets buffered
             </div>
+            <span className="text-xs text-muted-foreground truncate max-w-[150px]">{user?.email}</span>
+            <Button variant="ghost" size="sm" onClick={signOut} className="text-muted-foreground hover:text-foreground">
+              <LogOut className="h-4 w-4" />
+            </Button>
           </div>
         </header>
 
