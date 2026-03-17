@@ -6,8 +6,12 @@ import { ThroughputChart, ThreatChart, ClassificationPieChart } from "@/componen
 import { ModelStatus } from "@/components/ModelStatus";
 import { generateTrafficBatch, statusMetrics } from "@/data/mockData";
 import { TrafficEntry } from "@/types/network";
+import { useAuth } from "@/contexts/AuthContext";
+import { Button } from "@/components/ui/button";
+import { LogOut } from "lucide-react";
 
 export default function Index() {
+  const { user, signOut } = useAuth();
   const [activeView, setActiveView] = useState("overview");
   const [trafficData, setTrafficData] = useState<TrafficEntry[]>(() => generateTrafficBatch(50));
 
@@ -44,6 +48,10 @@ export default function Index() {
             <div className="px-3 py-1 bg-secondary rounded text-xs font-mono text-foreground">
               {trafficData.length} packets buffered
             </div>
+            <span className="text-xs text-muted-foreground truncate max-w-[150px]">{user?.email}</span>
+            <Button variant="ghost" size="sm" onClick={signOut} className="text-muted-foreground hover:text-foreground">
+              <LogOut className="h-4 w-4" />
+            </Button>
           </div>
         </header>
 
