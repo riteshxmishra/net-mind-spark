@@ -11,6 +11,7 @@ import { Button } from "@/components/ui/button";
 import { LogOut } from "lucide-react";
 
 export default function Index() {
+  const { user, signOut } = useAuth();
   const [activeView, setActiveView] = useState("overview");
   const [trafficData, setTrafficData] = useState<TrafficEntry[]>(() => generateTrafficBatch(50));
 
