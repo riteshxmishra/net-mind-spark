@@ -6,6 +6,9 @@ import { ThroughputChart, ThreatChart, ClassificationPieChart } from "@/componen
 import { ModelStatus } from "@/components/ModelStatus";
 import { generateTrafficBatch, statusMetrics } from "@/data/mockData";
 import { TrafficEntry } from "@/types/network";
+import { useAuth } from "@/contexts/AuthContext";
+import { Button } from "@/components/ui/button";
+import { LogOut } from "lucide-react";
 
 export default function Index() {
   const [activeView, setActiveView] = useState("overview");
